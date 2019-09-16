@@ -97,14 +97,14 @@ declare module '@youi/react-native-youi' {
     onBlur?: () => void;
   }
 
-  export interface RefProps {
+  export interface RefProps<Type> {
     name: string;
 
     children?: any;
 
     focusable?: boolean;
 
-    onLoad?: (ref: TimelineRef) => void;
+    onLoad?: (ref: Type) => void;
 
     onFocusInDescendants?: () => void;
 
@@ -145,7 +145,7 @@ declare module '@youi/react-native-youi' {
     source: VideoUriSource;
   }
 
-  export class VideoRef extends React.Component<RefProps & VideoRefProps> {
+  export class VideoRef extends React.Component<RefProps<VideoRef> & VideoRefProps> {
     seek: (value: number) => void;
 
     play: () => void;
@@ -267,7 +267,7 @@ declare module '@youi/react-native-youi' {
     returnKey?: 'default' | 'go' | 'search' | 'next' | 'done';
   }
 
-  export class TextInputRef extends React.Component<RefProps & TextInputProps & TextInputPropsYouI> {
+  export class TextInputRef extends React.Component<RefProps<TextInputRef> & TextInputProps & TextInputPropsYouI> {
     focus(): void;
 
     activate(): void;
@@ -279,7 +279,7 @@ declare module '@youi/react-native-youi' {
     clear(): void;
   }
 
-  export class TextRef extends React.Component<RefProps & TextRefProps, {}> {}
+  export class TextRef extends React.Component<RefProps<TextRef> & TextRefProps, {}> {}
 
   type Ref = any;
 
@@ -324,7 +324,7 @@ declare module '@youi/react-native-youi' {
 
   export const FocusManager: FocusManagerInterface;
 
-  export interface ButtonRefProps extends RefProps {
+  export interface ButtonRefProps extends RefProps<ButtonRef> {
     visible?: boolean;
 
     enabled?: boolean;
@@ -394,7 +394,7 @@ declare module '@youi/react-native-youi' {
     onError?(): void;
   }
 
-  export class ImageRef extends React.Component<ImageRefProps & RefProps> {}
+  export class ImageRef extends React.Component<ImageRefProps & RefProps<ImageRef>> {}
 
   export interface ListItem<T> {
     item: T;
@@ -457,9 +457,9 @@ declare module '@youi/react-native-youi' {
     keyExtractor?(item: T, index: number): string;
   }
 
-  export class ListRef<T> extends React.Component<ListRefProps<T> & RefProps> {}
+  export class ListRef<T> extends React.Component<ListRefProps<T> & RefProps<ListRef<T>>> {}
 
-  export class ScrollRef extends React.Component<RefProps & ScrollViewProps> {
+  export class ScrollRef extends React.Component<RefProps<ScrollRef> & ScrollViewProps> {
     scrollTo(arg0: { x: number; y: number; animated: boolean }): void;
 }
 
@@ -520,7 +520,7 @@ declare module '@youi/react-native-youi' {
     onStartedReverse?(): void;
   }
 
-  export class TimelineRef extends React.Component<RefProps & TimelineRefProps> {}
+  export class TimelineRef extends React.Component<RefProps<TimelineRef> & TimelineRefProps> {}
 
   export class Video extends React.Component<VideoProps> {}
 
@@ -540,7 +540,7 @@ declare module '@youi/react-native-youi' {
     onTimelinesLoaded?(): void;
   }
 
-  export class ViewRef extends React.Component<RefProps & ViewRefProps> {}
+  export class ViewRef extends React.Component<RefProps<ViewRef> & ViewRefProps> {}
 
   export const DeviceInfo: {
     getDeviceId(): string;

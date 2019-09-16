@@ -13,7 +13,7 @@ import { Config } from '../config';
 
 export type ToggleButtonPress = (index: number) => void;
 
-export interface ToggleButtonProps extends Omit<RefProps, 'name'> {
+export interface ToggleButtonProps extends Omit<RefProps<ButtonRef>, 'name'> {
     name?: string;
     index: number;
     toggled?: boolean;
